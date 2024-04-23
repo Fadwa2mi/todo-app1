@@ -1,5 +1,13 @@
 FROM node:12-alpine
-WORKDIR /app
-COPY . .
-RUN yarn install --production
-CMD ["node", "/app/src/index.js"]
+
+RUN apk add --no-cahche git
+
+RUN git clone -q https://github.com/Fadwa2mi/todo-app1.git
+
+WORKDIR /todo-app
+
+RUN yarn install --production 
+
+CMD ["node","/src/index.js"]
+
+
